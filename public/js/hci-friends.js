@@ -10,14 +10,15 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+	$(".name").click(projectClick);
 }
 
 function anagrammedName(name) {
 	// Thanks, Internet Anagram Server!
-	
+
 	if (name == "Doug Engelbart") {
 		return "Notable Grudge";
-	} 
+	}
 	else if (name == "Ivan Sutherland") {
 		return "Vandal Heist Run";
 	}
@@ -43,4 +44,16 @@ function anagrammedName(name) {
 		console.log(name + " not known for anagramming.");
 		return name;
 	}
+}
+
+function projectClick(e){
+	console.log("id");
+	e.preventDefault();
+	//$(this).css("background-color", "#7fff00");
+
+	//var anagrammeName= $(this).anagrammedName("#name");
+	var currentName = anagrammedName($(this).text());
+	console.log(currentName);
+	$(this).text(currentName);
+
 }
